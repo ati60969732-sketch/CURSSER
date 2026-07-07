@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Recurso | CURSSER</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,.1);
+}
+
+h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.info{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:20px 0;
+}
+
+.info span{
+    background:#e8f0fe;
+    padding:8px 15px;
+    border-radius:20px;
+}
+
+.botones{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.botones a{
+    text-decoration:none;
+}
+
+.botones button{
+
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+
+}
+
+.botones button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.relacionados{
+
+    margin-top:40px;
+
+}
+
+.lista{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+.item{
+
+    background:#fff;
+    width:220px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+
+}
+
+.item button{
+
+    width:100%;
+    margin-top:10px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+footer{
+
+    margin-top:50px;
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>CURSSER</h1>
+
+</header>
+
+<nav>
+
+<a href="index.html">Inicio</a>
+<a href="biblioteca.html">Biblioteca</a>
+<a href="categorias.html">Categorías</a>
+<a href="nosotros.html">Nosotros</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2 id="titulo"></h2>
+
+<p id="descripcion"></p>
+
+<div class="info">
+
+<span id="categoria"></span>
+
+<span id="nivel"></span>
+
+<span id="tipo"></span>
+
+</div>
+
+<div class="botones">
+
+<a id="video" target="_blank">
+<button>🎥 Ver Video</button>
+</a>
+
+<a id="web" target="_blank">
+<button>🌐 Página Web</button>
+</a>
+
+</div>
+
+</div>
+
+<div class="relacionados">
+
+<h2>Recursos relacionados</h2>
+
+<div class="lista">
+
+<div class="item">
+
+<h3>Java POO</h3>
+
+<p>Intermedio</p>
+
+<button>Ver</button>
+
+</div>
+
+<div class="item">
+
+<h3>Colecciones</h3>
+
+<p>Intermedio</p>
+
+<button>Ver</button>
+
+</div>
+
+<div class="item">
+
+<h3>Spring Boot</h3>
+
+<p>Avanzado</p>
+
+<button>Ver</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 TechLibrary
+
+</footer>
+
+<script>
+
+const recursos={
+
+java:{
+
+titulo:"Java desde Cero",
+
+descripcion:"Aprende los fundamentos del lenguaje Java mediante un curso para principiantes.",
+
+categoria:"💻 Programación",
+
+nivel:"Básico",
+
+tipo:"Video",
+
+video:"https://youtu.be/eIrMbAQSU34",
+
+web:"https://docs.oracle.com/en/java/"
+
+},
+
+sql:{
+
+titulo:"Introducción a SQL",
+
+descripcion:"Aprende consultas básicas y manejo de bases de datos relacionales.",
+
+categoria:"🗄 Base de Datos",
+
+nivel:"Básico",
+
+tipo:"Video",
+
+video:"https://youtu.be/HXV3zeQKqGY",
+
+web:"https://www.w3schools.com/sql/"
+
+},
+
+redes:{
+
+titulo:"Redes de Computadoras",
+
+descripcion:"Conceptos fundamentales sobre redes, protocolos y comunicación.",
+
+categoria:"🌐 Redes",
+
+nivel:"Intermedio",
+
+tipo:"Video",
+
+video:"https://youtu.be/qiQR5rTSshw",
+
+web:"https://www.cisco.com/"
+
+}
+
+};
+
+const parametro=new URLSearchParams(window.location.search);
+
+const id=parametro.get("id");
+
+const recurso=recursos[id];
+
+document.getElementById("titulo").innerHTML=recurso.titulo;
+
+document.getElementById("descripcion").innerHTML=recurso.descripcion;
+
+document.getElementById("categoria").innerHTML=recurso.categoria;
+
+document.getElementById("nivel").innerHTML=recurso.nivel;
+
+document.getElementById("tipo").innerHTML=recurso.tipo;
+
+document.getElementById("video").href=recurso.video;
+
+document.getElementById("web").href=recurso.web;
+
+</script>
+
+</body>
+</html>
